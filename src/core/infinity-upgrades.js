@@ -1,5 +1,6 @@
 import { GameMechanicState, SetPurchasableMechanicState } from "./game-mechanics";
 import { DC } from "./constants";
+import { AdBonus } from "./adBonus";
 
 class ChargedInfinityUpgradeState extends GameMechanicState {
   constructor(config, upgrade) {
@@ -85,7 +86,7 @@ export function totalIPMult() {
     return DC.D1;
   }
   let ipMult = DC.D1
-    .times(ShopPurchase.IPPurchases.currentMult)
+    .times(ShopPurchase.IPPurchases.currentMult).times(AdBonus.boostToIP.effectiveBoost())
     .timesEffectsOf(
       TimeStudy(41),
       TimeStudy(51),

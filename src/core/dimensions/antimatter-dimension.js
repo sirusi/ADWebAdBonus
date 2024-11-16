@@ -2,6 +2,8 @@ import { DC } from "../constants";
 
 import { DimensionState } from "./dimension";
 
+import { AdBonus } from "../adBonus";
+
 // Multiplier applied to all Antimatter Dimensions, regardless of tier. This is cached using a Lazy
 // and invalidated every update.
 export function antimatterDimensionCommonMultiplier() {
@@ -43,9 +45,11 @@ export function antimatterDimensionCommonMultiplier() {
     PelleUpgrade.antimatterDimensionMult
   );
 
+  
   multiplier = multiplier.dividedByEffectOf(InfinityChallenge(6));
   multiplier = multiplier.times(getAdjustedGlyphEffect("powermult"));
   multiplier = multiplier.times(Currency.realityMachines.value.powEffectOf(AlchemyResource.force));
+  multiplier = multiplier.times(AdBonus.boostToADs.effectiveBoost());
 
   if (Pelle.isDoomed) multiplier = multiplier.dividedBy(10);
 

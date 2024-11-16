@@ -1,4 +1,5 @@
 <script>
+import AdBonusDisplay from "../adBonusDisplay";
 import HeaderBlackHole from "./HeaderBlackHole";
 import HeaderChallengeDisplay from "./HeaderChallengeDisplay";
 import HeaderChallengeEffects from "./HeaderChallengeEffects";
@@ -13,6 +14,7 @@ export default {
     HeaderChallengeEffects,
     HeaderBlackHole,
     HeaderPrestigeGroup,
+    AdBonusDisplay,
     GameSpeedDisplay,
   },
   data() {
@@ -33,6 +35,8 @@ export default {
     <HeaderChallengeDisplay />
     <HeaderChallengeEffects />
     <HeaderPrestigeGroup />
+    <AdBonusDisplay />
+    <br v-if="hasReality">
     <GameSpeedDisplay v-if="hasReality" />
     <br v-if="hasReality">
     <HeaderBlackHole />

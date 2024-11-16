@@ -4,6 +4,7 @@ import { GameDatabase } from "../secret-formula/game-database";
 import { DC } from "../constants";
 
 import { Quotes } from "./quotes";
+import { AdBonus } from "../adBonus";
 
 export const EFFARIG_STAGES = {
   INFINITY: 1,
@@ -73,7 +74,7 @@ export const Effarig = {
   get shardsGained() {
     if (!TeresaUnlocks.effarig.canBeApplied) return 0;
     return Math.floor(Math.pow(Currency.eternityPoints.exponent / 7500, this.glyphEffectAmount)) *
-      AlchemyResource.effarig.effectValue;
+      AlchemyResource.effarig.effectValue * AdBonus.boostToRelicShards.effectiveBoost().toNumber();
   },
   get maxRarityBoost() {
     return 5 * Math.log10(Math.log10(Currency.relicShards.value + 10));

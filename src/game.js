@@ -10,6 +10,7 @@ import { Cloud } from "./core/storage";
 import { supportedBrowsers } from "./supported-browsers";
 
 import Payments from "./core/payments";
+import { AdBonus } from "./core/adBonus";
 
 if (GlobalErrorHandler.handled) {
   throw new Error("Initialization failed");
@@ -123,7 +124,7 @@ function totalEPMult() {
   return Pelle.isDisabled("EPMults")
     ? Pelle.specialGlyphEffect.time.timesEffectOf(PelleRifts.vacuum.milestones[2])
     : getAdjustedGlyphEffect("cursedEP")
-      .times(ShopPurchase.EPPurchases.currentMult)
+      .times(ShopPurchase.EPPurchases.currentMult).times(AdBonus.boostToEP.effectiveBoost())
       .timesEffectsOf(
         EternityUpgrade.epMult,
         TimeStudy(61),
@@ -366,6 +367,7 @@ export function getGameSpeedupFactor(effectsToConsider, blackHolesActiveOverride
 
 
   factor *= PelleUpgrade.timeSpeedMult.effectValue.toNumber();
+  factor *= AdBonus.boostToGamespeed.effectiveBoost().toNumber();
 
   // 1e-300 is now possible with max inverted BH, going below it would be possible with
   // an effarig glyph.

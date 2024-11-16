@@ -1,3 +1,4 @@
+import { AdBonus } from "../../adBonus";
 import { DC } from "../../constants";
 import { DimensionState } from "../../dimensions/dimension";
 
@@ -96,7 +97,7 @@ export class DarkMatterDimensionState extends DimensionState {
         SingularityMilestone.darkEnergyMult,
         SingularityMilestone.realityDEMultiplier,
         SingularityMilestone.multFromInfinitied
-      ).toNumber() * destabilizeBoost;
+      ).toNumber() * destabilizeBoost * AdBonus.boostToDE.effectiveBoost().toNumber();
   }
 
   get intervalAfterAscension() {

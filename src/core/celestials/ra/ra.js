@@ -1,5 +1,7 @@
+import { AdBonus } from "../../adBonus";
 import { BitUpgradeState, GameMechanicState } from "../../game-mechanics";
 import { Quotes } from "../quotes";
+
 
 class RaUnlockState extends BitUpgradeState {
   get bits() { return player.celestials.ra.unlockBits; }
@@ -253,7 +255,7 @@ export const Ra = {
     for (const pet of Ra.pets.all) pet.tick(realDiff, generateChunks);
   },
   get productionPerMemoryChunk() {
-    let res = Effects.product(Ra.unlocks.continuousTTBoost.effects.memories, Achievement(168));
+    let res = Effects.product(Ra.unlocks.continuousTTBoost.effects.memories, Achievement(168)) * AdBonus.boostToMemories.effectiveBoost().toNumber();
     for (const pet of Ra.pets.all) {
       if (pet.isUnlocked) res *= pet.memoryProductionMultiplier;
     }

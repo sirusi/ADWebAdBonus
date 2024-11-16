@@ -7,7 +7,7 @@ import HeaderPrestigeGroup from "../HeaderPrestigeGroup";
 import NewsTicker from "../NewsTicker";
 
 import GameSpeedDisplay from "@/components/GameSpeedDisplay";
-
+import adBonusDisplay from "@/components/adBonusDisplay";
 
 export default {
   name: "ModernUi",
@@ -18,6 +18,7 @@ export default {
     NewsTicker,
     HeaderBlackHole,
     HeaderPrestigeGroup,
+    adBonusDisplay,
     GameSpeedDisplay,
   },
   data() {
@@ -76,6 +77,8 @@ export default {
         <div class="information-header">
           <HeaderChallengeDisplay />
           <HeaderChallengeEffects />
+          <adBonusDisplay />
+          <br v-if="hasReality">
           <GameSpeedDisplay v-if="hasReality" />
           <br v-if="hasReality">
           <HeaderBlackHole />

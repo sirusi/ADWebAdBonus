@@ -1,3 +1,4 @@
+import { AdBonus } from "./adBonus";
 import { DC } from "./constants";
 
 export const MachineHandler = {
@@ -13,7 +14,7 @@ export const MachineHandler = {
 
   get realityMachineMultiplier() {
     return ShopPurchase.RMPurchases.currentMult * Teresa.rmMultiplier * Effects.max(1, PerkShopUpgrade.rmMult) *
-      getAdjustedGlyphEffect("effarigrm") * Achievement(167).effectOrDefault(1);
+      getAdjustedGlyphEffect("effarigrm") * Achievement(167).effectOrDefault(1) * AdBonus.boostToRM.effectiveBoost().toNumber();
   },
 
   get uncappedRM() {
