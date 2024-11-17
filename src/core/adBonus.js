@@ -7,6 +7,7 @@ import { TeresaUnlocks } from "./globals";
 import { Enslaved } from "./globals";
 import { Currency } from "./globals";
 import { isRealityAvailable } from "./globals";
+import wordShift from "@/core/word-shift";
 
 class AdBonusState {
     constructor(canBoost, getBoost, bonusString) {
