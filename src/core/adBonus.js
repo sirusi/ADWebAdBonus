@@ -21,7 +21,7 @@ class AdBonusState {
     }
 
     get boostDisplay() {
-        return formatX(this.boost, 2);
+        return formatX(this.boost, 2, 2);
     }
 
     get bonusDisplay() {
