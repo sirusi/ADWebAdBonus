@@ -55,13 +55,13 @@ export const AdBonus = {
     ),
 
     boostToIP: new AdBonusState(
-        () => player.infinities.toNumber() >= 10,
+        () => player.bigInfinities >= 10,
         () => Currency.infinityPoints.value.pow(0.01).clampMin(DC.D2),
         adBonus => `IP gain is multiplied by ${adBonus}`
     ),
 
     boostToEP: new AdBonusState(
-        () => player.eternities.toNumber() >= 10,
+        () => player.bigEternities >= 10,
         () => Currency.eternityPoints.value.pow(0.01).clamp(DC.D1_5, DC.E10),
         adBonus => `EP gained on Eternity is multiplied by ${adBonus}`
     ),

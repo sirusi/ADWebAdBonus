@@ -13,6 +13,7 @@ function giveEternityRewards(auto) {
   }
 
   Currency.eternities.add(newEternities);
+  player.bigEternities++;
 
   if (EternityChallenge.isRunning) {
     const challenge = EternityChallenge.current;
@@ -138,6 +139,7 @@ export function eternity(force, auto, specialConditions = {}) {
   player.records.thisEternity.maxAM = DC.D0;
   Currency.antimatter.reset();
   ECTimeStudyState.invalidateCachedRequirements();
+  player.bigInfinities = 0;
 
   PelleStrikes.eternity.trigger();
 

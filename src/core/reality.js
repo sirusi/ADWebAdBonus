@@ -723,6 +723,8 @@ export function finishProcessReality(realityProps) {
   resetTickspeed();
   AchievementTimers.marathon2.reset();
   Currency.infinityPoints.reset();
+  player.bigInfinities = 0;
+  player.bigEternities = 0;
 
   if (RealityUpgrade(10).isBought) applyRUPG10();
   else Tab.dimensions.antimatter.show();

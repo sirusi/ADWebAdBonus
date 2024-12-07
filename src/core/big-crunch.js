@@ -68,6 +68,7 @@ function bigCrunchGiveRewards() {
   const infinityPoints = gainedInfinityPoints();
   Currency.infinityPoints.add(infinityPoints);
   Currency.infinities.add(gainedInfinities().round());
+  player.bigInfinities++;
 
   bigCrunchTabChange(!PlayerProgress.infinityUnlocked());
   bigCrunchCheckUnlocks();
